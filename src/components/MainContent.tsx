@@ -24,23 +24,27 @@ const MainContent = () => {
   ];
 
   return (
-    <div className="p-8">
-      <h2 className="font-title text-3xl font-extrabold mb-6">Buenos días</h2>
+    <div className="p-4 md:p-8">
+      <h2 className="font-title text-2xl md:text-3xl font-extrabold mb-4 md:mb-6">Buenos días</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
         {playlists.map((playlist, index) => (
           <div
             key={index}
-            className="bg-player-surface p-4 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer group animate-fade-in"
+            className="bg-player-surface p-3 md:p-4 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer group animate-fade-in"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <img
               src={playlist.image}
               alt={playlist.title}
-              className="w-full aspect-square object-cover rounded-md mb-4 shadow-lg group-hover:shadow-xl transition-shadow"
+              className="w-full aspect-square object-cover rounded-md mb-2 md:mb-4 shadow-lg group-hover:shadow-xl transition-shadow"
             />
-            <h3 className="font-title text-lg font-extrabold mb-1">{playlist.title}</h3>
-            <p className="font-body text-sm text-player-secondary">{playlist.description}</p>
+            <h3 className="font-title text-base md:text-lg font-extrabold mb-0.5 md:mb-1 line-clamp-1">
+              {playlist.title}
+            </h3>
+            <p className="font-body text-xs md:text-sm text-player-secondary line-clamp-2">
+              {playlist.description}
+            </p>
           </div>
         ))}
       </div>
